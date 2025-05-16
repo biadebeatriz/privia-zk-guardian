@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,19 +38,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -96,6 +92,40 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-white text-privia-petrol font-inter;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-dm-sans font-bold;
+  }
+}
+
+@layer components {
+  .story-link {
+    @apply relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-privia-blue after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
+  }
+  
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+  
+  .btn-primary {
+    @apply bg-privia-blue text-white py-3 px-6 rounded-md font-medium hover-scale;
+  }
+  
+  .btn-secondary {
+    @apply bg-privia-green text-privia-petrol py-3 px-6 rounded-md font-medium hover-scale;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-privia-blue text-privia-blue py-3 px-6 rounded-md font-medium hover:bg-privia-blue hover:text-white transition-colors duration-300;
+  }
+  
+  .plan-card {
+    @apply bg-white p-6 rounded-lg shadow-md border border-privia-gray/20;
+  }
+  
+  .plan-card-featured {
+    @apply bg-white p-6 rounded-lg shadow-lg border-2 border-privia-blue relative;
   }
 }
