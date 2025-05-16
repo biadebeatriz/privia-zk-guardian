@@ -50,13 +50,13 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8">
-          <a href="#inicio" className="text-white font-medium hover:text-privia-blue transition-colors">
+          <a href="#inicio" className={`font-medium hover:text-privia-blue transition-colors ${isScrolled ? 'text-privia-petrol' : 'text-white'}`}>
             Início
           </a>
-          <a href="#como-funciona" className="text-white font-medium hover:text-privia-blue transition-colors">
+          <a href="#como-funciona" className={`font-medium hover:text-privia-blue transition-colors ${isScrolled ? 'text-privia-petrol' : 'text-white'}`}>
             Como Funciona
           </a>
-          <a href="#planos" className="text-white font-medium hover:text-privia-blue transition-colors">
+          <a href="#planos" className={`font-medium hover:text-privia-blue transition-colors ${isScrolled ? 'text-privia-petrol' : 'text-white'}`}>
             Planos
           </a>
           <Button asChild className="bg-privia-blue hover:bg-privia-blue/90 text-white">
