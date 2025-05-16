@@ -111,7 +111,7 @@ const HospitalDashboard = () => {
             <Button 
               variant="outline" 
               asChild 
-              className="text-white border-white hover:bg-white hover:text-privia-petrol focus:text-privia-petrol"
+              className="text-privia-green border-white hover:bg-white hover:text-privia-petrol focus:text-privia-petrol"
             >
               <Link to="/">Sair</Link>
             </Button>
