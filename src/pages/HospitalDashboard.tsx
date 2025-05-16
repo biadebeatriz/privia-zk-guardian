@@ -108,7 +108,11 @@ const HospitalDashboard = () => {
           <Link to="/" className="text-2xl font-bold">Privia</Link>
           <div className="flex items-center gap-4">
             <span className="hidden md:inline-block">Hospital Santa Casa</span>
-            <Button variant="outline" asChild className="text-white border-white hover:bg-white hover:text-privia-petrol">
+            <Button 
+              variant="outline" 
+              asChild 
+              className="text-white border-white hover:bg-white hover:text-privia-petrol focus:text-privia-petrol"
+            >
               <Link to="/">Sair</Link>
             </Button>
           </div>
