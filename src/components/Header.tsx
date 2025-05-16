@@ -24,7 +24,9 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="flex items-center">
-          <h1 className="text-2xl font-bold text-privia-petrol">Privia</h1>
+          <h1 className="text-2xl font-bold text-privia-petrol">
+            Privia<span className="text-privia-blue text-3xl">.</span>
+          </h1>
         </Link>
 
         {/* Mobile menu button */}
@@ -48,13 +50,13 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8">
-          <a href="#inicio" className="text-privia-petrol hover:text-privia-blue transition-colors">
+          <a href="#inicio" className="text-white font-medium hover:text-privia-blue transition-colors">
             Início
           </a>
-          <a href="#como-funciona" className="text-privia-petrol hover:text-privia-blue transition-colors">
+          <a href="#como-funciona" className="text-white font-medium hover:text-privia-blue transition-colors">
             Como Funciona
           </a>
-          <a href="#planos" className="text-privia-petrol hover:text-privia-blue transition-colors">
+          <a href="#planos" className="text-white font-medium hover:text-privia-blue transition-colors">
             Planos
           </a>
           <Button asChild className="bg-privia-blue hover:bg-privia-blue/90 text-white">
