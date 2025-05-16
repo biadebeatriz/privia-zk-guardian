@@ -1,10 +1,16 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { toast } from "sonner";
 
 interface Verification {
@@ -48,22 +54,22 @@ const InsurerDashboard = () => {
 
   const handleVerification = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!aggregationId.trim()) {
       toast.error("Por favor, insira um Aggregation ID válido.");
       return;
     }
-    
+
     setIsVerifying(true);
-    
+
     // Simulate verification process
     setTimeout(() => {
       setIsVerifying(false);
-      
+
       // Generate random score between 70 and 98
       const score = Math.floor(Math.random() * (98 - 70 + 1)) + 70;
       const status = score >= 80 ? "valid" : "invalid";
-      
+
       // Add new verification to the list
       const newVerification: Verification = {
         id: (verifications.length + 1).toString(),
@@ -73,10 +79,10 @@ const InsurerDashboard = () => {
         status,
         date: new Date().toISOString().split("T")[0],
       };
-      
+
       setVerifications([newVerification, ...verifications]);
       setAggregationId("");
-      
+
       if (status === "valid") {
         toast.success("Prova ZK verificada com sucesso!");
       } else {
@@ -90,10 +96,18 @@ const InsurerDashboard = () => {
       {/* Header */}
       <header className="bg-privia-petrol text-white">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link to="/" className="text-2xl font-bold">Privia</Link>
+          <Link to="/" className="text-2xl font-bold">
+            Privia<span className="text-privia-blue text-3xl">.</span>
+          </Link>
           <div className="flex items-center gap-4">
-            <span className="hidden md:inline-block">Seguradora Saúde Plus</span>
-            <Button variant="outline" asChild className="text-white border-white hover:bg-white hover:text-privia-petrol">
+            <span className="hidden md:inline-block">
+              Seguradora Saúde Plus
+            </span>
+            <Button
+              variant="outline"
+              asChild
+              className="text-privia-green border-white hover:bg-white hover:text-privia-petrol focus:text-privia-petrol"
+            >
               <Link to="/">Sair</Link>
             </Button>
           </div>
@@ -102,16 +116,21 @@ const InsurerDashboard = () => {
 
       <main className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-8">Painel da Seguradora</h1>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Top Section - Verification Input */}
           <div className="lg:col-span-12">
             <div className="bg-white rounded-lg border border-privia-gray/20 p-6 shadow-sm">
               <h2 className="text-xl font-bold mb-4">Verificar Prova ZK</h2>
-              
-              <form onSubmit={handleVerification} className="flex flex-col sm:flex-row gap-4">
+
+              <form
+                onSubmit={handleVerification}
+                className="flex flex-col sm:flex-row gap-4"
+              >
                 <div className="flex-1">
-                  <Label htmlFor="aggregation-id" className="sr-only">Aggregation ID</Label>
+                  <Label htmlFor="aggregation-id" className="sr-only">
+                    Aggregation ID
+                  </Label>
                   <Input
                     id="aggregation-id"
                     placeholder="Cole o Aggregation ID aqui"
@@ -128,24 +147,33 @@ const InsurerDashboard = () => {
                   {isVerifying ? "Verificando..." : "Verificar Prova"}
                 </Button>
               </form>
-              
+
               <div className="mt-4 text-sm text-privia-petrol/70">
-                <p>Cole o Aggregation ID fornecido pelo hospital para verificar a prova de forma segura e em compliance com a LGPD.</p>
+                <p>
+                  Cole o Aggregation ID fornecido pelo hospital para verificar a
+                  prova de forma segura e em compliance com a LGPD.
+                </p>
               </div>
             </div>
           </div>
-          
+
           {/* Bottom Section - Verifications Table */}
           <div className="lg:col-span-12">
             <div className="bg-white rounded-lg border border-privia-gray/20 p-6 shadow-sm">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-xl font-bold">Histórico de Verificações</h2>
                 <div className="flex items-center gap-2">
-                  <Label htmlFor="filter" className="sr-only">Filtrar</Label>
-                  <Input id="filter" placeholder="Buscar por cliente ou hospital..." className="w-64" />
+                  <Label htmlFor="filter" className="sr-only">
+                    Filtrar
+                  </Label>
+                  <Input
+                    id="filter"
+                    placeholder="Buscar por cliente ou hospital..."
+                    className="w-64"
+                  />
                 </div>
               </div>
-              
+
               <div className="overflow-x-auto">
                 <Table>
                   <TableHeader>
@@ -181,17 +209,25 @@ const InsurerDashboard = () => {
                           </div>
                         </TableCell>
                         <TableCell>
-                          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                            verification.status === "valid"
-                              ? "bg-privia-green/20 text-privia-green"
-                              : "bg-red-100 text-red-800"
-                          }`}>
-                            {verification.status === "valid" ? "Válida" : "Inválida"}
+                          <span
+                            className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                              verification.status === "valid"
+                                ? "bg-privia-green/20 text-privia-green"
+                                : "bg-red-100 text-red-800"
+                            }`}
+                          >
+                            {verification.status === "valid"
+                              ? "Válida"
+                              : "Inválida"}
                           </span>
                         </TableCell>
                         <TableCell>{verification.date}</TableCell>
                         <TableCell>
-                          <Button variant="ghost" size="sm" className="text-privia-blue hover:text-privia-blue/80 hover:bg-privia-blue/10">
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="text-privia-blue hover:text-privia-blue/80 hover:bg-privia-blue/10"
+                          >
                             Ver no zkVerify
                           </Button>
                         </TableCell>

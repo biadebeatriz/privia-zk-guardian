@@ -1,73 +1,109 @@
-# Welcome to your Lovable project
+# 🛡️ Privia – IA Médica com Privacidade Garantida
 
-## Project info
+**Plataforma de validação de IA médica com provas de conhecimento zero (ZK).**
+Hospitais treinam modelos localmente com dados sensíveis e geram provas criptográficas que seguradoras validam via zkVerify — tudo sem expor informações pessoais.
 
-**URL**: https://lovable.dev/projects/68338402-d9c3-4bda-bd4d-5848ebe74f4b
+---
 
-## How can I edit this code?
+## 🧩 Visão Geral
 
-There are several ways of editing your application.
+Privia resolve um dos maiores desafios da saúde digital: **como validar a integridade de modelos de IA sem comprometer a privacidade dos dados médicos**.
 
-**Use Lovable**
+- ✅ Garantia de conformidade com a **LGPD**
+- 🔒 Privacidade total com **provas de conhecimento zero (ZK)**
+- 🏥 IA treinada **localmente** pelo hospital
+- 🧾 Validação **descentralizada** e auditável por seguradoras
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/68338402-d9c3-4bda-bd4d-5848ebe74f4b) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🏁 Começando
 
-**Use your preferred IDE**
+### Pré-requisitos
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Node.js 18+
+- npm ou yarn
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Instalação
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+git clone https://github.com/seu-usuario/privia-zk.git
+cd privia-zk
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Acesse a aplicação em `http://localhost:5173`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 🖥️ Estrutura do Projeto
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+src/
+├── components/
+│   ├── Header.tsx
+│   └── ui/              # Botões, inputs, tabelas (shadcn/ui)
+├── pages/
+│   ├── HospitalDashboard.tsx
+│   ├── InsurerDashboard.tsx
+│   └── NotFound.tsx
+├── App.tsx
+├── Index.tsx            # Landing page com planos e introdução
+└── main.tsx
+```
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## ⚙️ Funcionalidades
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Hospitais (`/hospital`)
 
-## How can I deploy this project?
+- Upload de CSV com dados clínicos
+- Treinamento de IA local com feedback em tempo real
+- Geração de Provas ZK criptográficas
+- Envio para zkVerify via front-end
 
-Simply open [Lovable](https://lovable.dev/projects/68338402-d9c3-4bda-bd4d-5848ebe74f4b) and click on Share -> Publish.
+### Seguradoras (`/insurer`)
 
-## Can I connect a custom domain to my Lovable project?
+- Input de Aggregation ID
+- Verificação segura da prova ZK
+- Score de integridade do modelo
+- Dashboard com histórico e status da validação
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 💰 Planos para Seguradoras
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+| Plano            | Preço                   | Recursos incluídos                                                                          |
+| ---------------- | ----------------------- | ------------------------------------------------------------------------------------------- |
+| **Essencial**    | R$ 499/mês              | 1.000 provas/mês, dashboard básico, 1 usuário, suporte por e-mail                           |
+| **Profissional** | R$ 1.499/mês            | 10.000 provas/mês, API completa, 5 usuários, relatórios avançados, suporte prioritário      |
+| **Performance**  | 1,5% por plano aprovado | Uso ilimitado, pagamento sob demanda, dashboard completo, relatórios LGPD, suporte dedicado |
+
+---
+
+## 🎨 Design e Tecnologias
+
+- **React + TypeScript**
+- **TailwindCSS** com customizações de cores `privia-*`
+- **shadcn/ui** para componentes
+- **sonner** para notificações
+- **React Router** para navegação SPA
+- Estilo responsivo e moderno com animações
+
+---
+
+## 🔐 ZK e Compliance
+
+- **Zero-Knowledge Proofs (ZK)**: Garantem que um modelo foi treinado corretamente **sem expor dados sensíveis**
+- **zkVerify**: Validador externo que analisa apenas a prova e a integridade da IA
+- **LGPD Compliance**: Nenhum dado pessoal sai do ambiente hospitalar
+
+---
+
+## 📈 Futuras Melhorias
+
+- Integração real com zkVerify (on-chain ou verificador backend)
+- Cadastro e autenticação de usuários
+- Exportação de relatórios PDF
+- Modo whitelabel para seguradoras parceiras

@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -24,7 +23,11 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="flex items-center">
-          <h1 className="text-2xl font-bold text-privia-petrol">
+          <h1
+            className={`text-2xl font-bold transition-colors duration-300 ${
+              isScrolled ? "text-privia-petrol" : "text-white"
+            }`}
+          >
             Privia<span className="text-privia-blue text-3xl">.</span>
           </h1>
         </Link>
@@ -35,12 +38,32 @@ const Header = () => {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
           ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
               <line x1="3" y1="12" x2="21" y2="12"></line>
               <line x1="3" y1="6" x2="21" y2="6"></line>
               <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -50,16 +73,34 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8">
-          <a href="#inicio" className={`font-medium hover:text-privia-blue transition-colors ${isScrolled ? 'text-privia-petrol' : 'text-white'}`}>
+          <a
+            href="#inicio"
+            className={`font-medium hover:text-privia-blue transition-colors ${
+              isScrolled ? "text-privia-petrol" : "text-white"
+            }`}
+          >
             Início
           </a>
-          <a href="#como-funciona" className={`font-medium hover:text-privia-blue transition-colors ${isScrolled ? 'text-privia-petrol' : 'text-white'}`}>
+          <a
+            href="#como-funciona"
+            className={`font-medium hover:text-privia-blue transition-colors ${
+              isScrolled ? "text-privia-petrol" : "text-white"
+            }`}
+          >
             Como Funciona
           </a>
-          <a href="#planos" className={`font-medium hover:text-privia-blue transition-colors ${isScrolled ? 'text-privia-petrol' : 'text-white'}`}>
+          <a
+            href="#planos"
+            className={`font-medium hover:text-privia-blue transition-colors ${
+              isScrolled ? "text-privia-petrol" : "text-white"
+            }`}
+          >
             Planos
           </a>
-          <Button asChild className="bg-privia-blue hover:bg-privia-blue/90 text-white">
+          <Button
+            asChild
+            className="bg-privia-blue hover:bg-privia-blue/90 text-white"
+          >
             <Link to="/hospital">Entrar</Link>
           </Button>
         </nav>
@@ -69,28 +110,28 @@ const Header = () => {
       {isMenuOpen && (
         <div className="lg:hidden bg-white shadow-md py-4 px-4 animate-fade-in">
           <nav className="flex flex-col gap-4">
-            <a 
-              href="#inicio" 
+            <a
+              href="#inicio"
               className="text-privia-petrol hover:text-privia-blue transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Início
             </a>
-            <a 
-              href="#como-funciona" 
+            <a
+              href="#como-funciona"
               className="text-privia-petrol hover:text-privia-blue transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Como Funciona
             </a>
-            <a 
-              href="#planos" 
+            <a
+              href="#planos"
               className="text-privia-petrol hover:text-privia-blue transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Planos
             </a>
-            <Link 
+            <Link
               to="/hospital"
               className="bg-privia-blue hover:bg-privia-blue/90 text-white py-2 px-4 rounded w-full text-center"
               onClick={() => setIsMenuOpen(false)}
