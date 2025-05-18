@@ -1,0 +1,6 @@
+[package]
+name = "privia"
+type = "bin"
+authors = [""]
+
+[dependencies]
