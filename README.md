@@ -29,15 +29,11 @@ O sistema é composto por dois ambientes principais:
 
 Demonstrar que é possível **compartilhar modelos de IA médica com segurança criptográfica**, promovendo um ciclo virtuoso: diagnósticos mais precisos, planos mais baratos, ciência auditável e dados protegidos.
 
----
-
 - ✅ Conformidade automática com a **LGPD**
 - 🔒 Modelos validados com **Zero-Knowledge Proofs (ZK)**
 - 🧠 IA treinada **localmente** e publicada com segurança
 - 📊 Score de risco + estimativa de sinistro gerados com privacidade
 - 🔁 Incentivos alinhados para hospitais, seguradoras e pacientes
-
----
 
 ### 🔐 Valor Entregue
 
@@ -61,54 +57,11 @@ npm run dev
 
 Acesse a aplicação em `http://localhost:5173`.
 
----
-
 ## 🖥️ Estrutura do Projeto
 
 ```
-├── README.md # Documentação principal do projeto
-├── bun.lockb # Lockfile do Bun (gerenciador de pacotes)
-├── cancer_svm.py # Script de IA em Python (ex: classificação de câncer)
-├── circuits-zk/ # Diretório com circuito Noir (prova ZK)
-│ └── noir/
-│ ├── Nargo.toml # Configuração do projeto Noir
-│ ├── Prover.toml # Config do provador ZK
-│ ├── src/
-│ │ └── main.nr # Lógica do circuito ZK
-│ └── target/
-│ └── circuit.json # Circuito compilado (output Noir)
-├── components.json # Metadata para uso dos componentes
-├── eslint.config.js # Configuração do ESLint
-├── index.html # Página HTML base
-├── package-lock.json # Lockfile do npm
-├── package.json # Dependências e scripts npm
-├── postcss.config.js # Configuração do PostCSS
-├── public/ # Arquivos públicos acessíveis diretamente
-│ ├── Logo-Privia.png # Logotipo do projeto
-│ ├── circuit.json # Circuito exportado para uso no frontend
-│ ├── favicon.ico # Ícone do navegador
-│ ├── placeholder.svg # Ilustração visual
-│ ├── proof_input.json # Input de prova para testes
-│ └── robots.txt # Política de indexação por bots
-├── setup_env.sh # Script para configurar variáveis de ambiente
-├── src/ # Código-fonte principal
-│ ├── App.css # Estilos globais
-│ ├── App.tsx # Componente raiz da aplicação React
-│ ├── components/ # Componentes reutilizáveis
-│ │ ├── Header.tsx # Cabeçalho da aplicação
-│ │ └── ui/ # Biblioteca de componentes UI customizados
-│ │ └── [...vários].tsx # Botões, tabelas, inputs, modais, etc.
-│ ├── hooks/ # Custom React hooks
-│ │ ├── use-mobile.tsx # Detecção de viewport mobile
-│ │ └── use-toast.ts # Hook para sistema de notificações
-│ ├── index.css # CSS base
-│ ├── index.ts # Entrada do bundle
-│ ├── lib/
-│ │ └── utils.ts # Funções utilitárias gerais
-│
-```
 
----
+```
 
 ## 🔐 Explicação Técnica – Integração com zkVerify
 
@@ -145,42 +98,43 @@ Essa integração estabelece uma ponte robusta entre **inteligência artificial 
 
 ## ⚡ Entrega de Valor com Menor Esforço
 
-A principal entrega de valor com menor esforço no projeto **Privia** foi a criação de uma experiência completa de validação de modelos de IA com provas de conhecimento zero, mesmo sem utilizar provas reais nesta etapa inicial.
+A principal entrega de valor com menor esforço no projeto **Privia** foi a construção de um MVP funcional que simula, de forma realista, o fluxo completo de validação de modelos de IA médica com garantias de privacidade via provas de conhecimento zero (ZK Proofs).
 
-Com o uso de simulações visuais e lógicas preparadas para integração futura com zkVerify, foi possível:
+Mesmo sem a geração de provas reais nesta fase inicial, foi possível:
 
-- Validar a proposta de valor de forma tangível;
-- Comunicar claramente a funcionalidade da plataforma;
-- Mostrar o fluxo completo: publicação do modelo, simulação com dados e retorno de score/sinistro;
-- Criar uma ponte entre inovação técnica (ZK) e usabilidade prática no setor de saúde.
+- Validar a proposta de valor com uma interface intuitiva e didática;
+- Comunicar com clareza o diferencial técnico da arquitetura ZK;
+- Demonstrar o uso real por dois tipos de usuário: hospital (emissor da prova) e seguradora (validadora);
+- Simular resultados críveis com score de risco e estimativa de sinistro;
+- Reproduzir visualmente a experiência de envio, verificação e rastreabilidade da prova.
 
-Isso acelerou o desenvolvimento do MVP com baixo custo técnico e alto impacto na percepção do projeto, facilitando a apresentação para mentores, investidores e potenciais parceiros.
+Esse MVP acelerou o ciclo de aprendizado e feedback do produto com baixo esforço técnico, mantendo coerência com os objetivos de compliance, interoperabilidade e inovação aberta.
 
 ## ⚙️ Funcionalidades
 
-A Privia oferece um fluxo completo de validação e uso de modelos de IA médica, com foco na privacidade dos dados e confiança criptográfica. O sistema é dividido em duas áreas principais: **Hospitais** (que publicam os modelos) e **Seguradoras** (que utilizam esses modelos para simulação de risco).
+A Privia entrega um fluxo completo, seguro e auditável de validação e uso de modelos de IA médica, com foco na privacidade dos dados e integridade das análises. A experiência do usuário é dividida em duas jornadas principais: **Hospitais** e **Seguradoras**.
 
 ### 🔬 Área do Hospital – Publicação de Modelos
 
-- Treinamento local de modelos com dados sensíveis;
-- Geração de prova de conhecimento zero (ZK Proof) usando Noir;
-- Publicação do modelo com metadata (condição, instituição, versão);
-- Upload da ZK Proof no marketplace;
-- Histórico de modelos publicados com status e validação.
+- Treinamento local de modelos com dados clínicos sensíveis;
+- Geração de prova de conhecimento zero (ZK Proof) utilizando Noir e nargo;
+- Publicação do modelo no marketplace com metadados como condição médica, instituição e versão;
+- Upload da prova vinculada ao modelo, identificada por um Aggregation ID;
+- Acompanhamento do histórico completo de modelos publicados, incluindo status de validação e controle de versões.
 
 ### 💰 Área da Seguradora – Simulação de Risco
 
-- Navegação por modelos validados no marketplace;
-- Seleção de um modelo por condição médica (ex: câncer de mama);
-- Inserção de dados simulados de um cliente (idade, histórico, etc.);
-- Carregamento visual simulado (sem rodar a IA real);
-- Retorno com:
+- Acesso ao marketplace com modelos públicos validados e auditáveis;
+- Seleção de modelos por categoria clínica (ex: recidiva de câncer de mama);
+- Inserção de dados simulados de pacientes (como idade, histórico, exames, etc.);
+- Carregamento visual que simula a execução do modelo de forma segura;
+- Retorno da análise com:
   - **Score de risco** (ex: 83%);
-  - **Estimativa de custo/sinistro** (ex: R$ 18.000,00);
-- Verificação pública da prova vinculada (Aggregation ID);
-- Histórico de simulações realizadas.
+  - **Estimativa de custo ou sinistro** (ex: R$ 18.000,00);
+- Acesso ao link público de verificação da prova ZK via zkVerify;
+- Histórico de simulações com rastreabilidade total para decisões e auditorias.
 
-## Essas funcionalidades demonstram, mesmo em modo MVP, a viabilidade de um sistema que conecta IA médica, privacidade e interoperabilidade regulatória — pronto para evolução com zkVerify.
+Essas funcionalidades demonstram, mesmo em sua fase de MVP, a viabilidade técnica e operacional de um sistema que conecta IA médica com segurança, privacidade e transparência — pronto para validações públicas via zkVerify.
 
 ## 🎨 Design e Tecnologias
 
@@ -190,8 +144,6 @@ A Privia oferece um fluxo completo de validação e uso de modelos de IA médica
 - **sonner** para notificações
 - **React Router** para navegação SPA
 - Estilo responsivo e moderno com animações
-
----
 
 ## 🚧 Próximos Passos
 
