@@ -161,7 +161,7 @@ Nosso time combina experiência técnica em blockchain, IA e liderança de engen
 - **José Victor Dantas** – [@zevictordantas](https://github.com/zevictordantas)  
   Especialista em blockchain, atua com inovação na Corp Insider e é CTO da BlockC.
 
-- **Beatriz Siqueira**  
+- **Beatriz Siqueira** – [@biadebatriz](https://github.com/biadebatriz)  
   Ex-Tech Leader e Tech Manager na Mentora, com sólida experiência em liderança de equipes e arquitetura de software.
 
 - **Márcio Lucas** – [@marciold](https://github.com/marciold)  
