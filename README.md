@@ -4,8 +4,6 @@
 Marketplace de validação e compartilhamento de modelos de IA médica com provas de conhecimento zero (ZK).
 Hospitais treinam modelos com dados sensíveis, geram provas criptográficas e os publicam com segurança. Seguradoras utilizam esses modelos para precificar riscos e produtos — tudo sem expor nenhuma informação pessoal.
 
----
-
 ## 🧩 Visão Geral
 
 Imagine um hospital que desenvolve um modelo de machine learning com 98% de acurácia para prever câncer de mama. Apesar da eficiência, esse modelo não pode ser compartilhado: a LGPD e outras regulamentações bloqueiam o uso de dados sensíveis. Isso atrasa avanços médicos, encarece planos de saúde e trava a inovação. Essa é a realidade enfrentada por todos os hospitais brasileiros que fazem pesquisa com dados clínicos.
@@ -35,27 +33,79 @@ Demonstrar que é possível **compartilhar modelos de IA médica com segurança 
 - 📊 Score de risco + estimativa de sinistro gerados com privacidade
 - 🔁 Incentivos alinhados para hospitais, seguradoras e pacientes
 
-### 🔐 Valor Entregue
+## 🔐 Valor Entregue
 
-O MVP do Privia entrega valor real mesmo em sua versão simulada. Ele prova que é possível construir um pipeline funcional de validação de IA médica sem acesso aos dados sensíveis. Hospitais ganham confiança na privacidade de seus dados e seguradoras ganham transparência e segurança técnica na avaliação de riscos. O projeto comunica com clareza o potencial de uma solução ZK-ready no setor de saúde, abrindo espaço para integração futura com implementações reais em blockchain e ZK como zkVerify.
+Mesmo em sua versão simulada, o MVP da **Privia** entrega valor tangível ao validar o conceito central da plataforma: é possível garantir a integridade de modelos de IA médica sem comprometer a privacidade dos dados.
+
+- 🏥 **Hospitais** ganham autonomia para treinar e publicar modelos com confiança de que os dados dos pacientes permanecem seguros e locais.
+- 🛡️ **Seguradoras** recebem provas de integridade técnica e podem simular riscos de forma transparente, sem depender da confiança cega no emissor.
+- 🔐 **Privacidade preservada**: o fluxo demonstra como Zero-Knowledge Proofs (ZK) podem assegurar veracidade sem revelar dados.
+- 🧠 **Pronto para evolução técnica**: toda a arquitetura foi construída com foco em compatibilidade com zkVerify, Noir e blockchain pública.
+- 🚀 **Alinhamento com o setor de saúde**: promove interoperabilidade, conformidade com a LGPD e abre espaço para inovação financeira baseada em dados verificados.
+
+O projeto mostra, na prática, como combinar privacidade, confiança e escalabilidade em um setor onde cada dado importa — e onde cada decisão precisa ser validada com responsabilidade.
+
+## ⚙️ Funcionalidades
+
+A Privia entrega um fluxo completo, seguro e auditável de validação e uso de modelos de IA médica, com foco na privacidade dos dados e integridade das análises. A experiência do usuário é dividida em duas jornadas principais: **Hospitais** e **Seguradoras**.
+
+### 🔬 Área do Hospital – Publicação de Modelos
+
+- Treinamento local de modelos com dados clínicos sensíveis;
+- Geração de prova de conhecimento zero (ZK Proof) utilizando Noir e nargo;
+- Publicação do modelo no marketplace com metadados como condição médica, instituição e versão;
+- Acompanhamento do histórico completo de modelos publicados, incluindo status de validação e controle de versões.
+
+### 💰 Área da Seguradora – Simulação de Risco
+
+- Acesso ao marketplace com modelos públicos validados e auditáveis;
+- Seleção de modelos por categoria clínica (ex: recidiva de câncer de mama);
+- Inserção de dados simulados de pacientes (como idade, histórico, exames, etc.);
+- Carregamento visual que simula a execução do modelo de forma segura;
+- Retorno da análise com:
+  - **Score de risco** (ex: 83%);
+  - **Estimativa de custo ou sinistro** (ex: R$ 18.000,00);
+- Acesso ao link público de verificação da prova ZK via zkVerify;
+- Histórico de simulações com rastreabilidade total para decisões e auditorias.
+
+Essas funcionalidades demonstram, mesmo em sua fase de MVP, a viabilidade técnica e operacional de um sistema que conecta IA médica com segurança, privacidade e transparência — pronto para validações públicas via zkVerify.
+
+## ⚡ Entrega de Valor com Menor Esforço
+
+A principal entrega de valor com menor esforço no projeto **Privia** foi a construção de um MVP funcional que simula, de forma realista, o fluxo completo de validação de modelos de IA médica com garantias de privacidade via provas de conhecimento zero (ZK Proofs).
+
+Mesmo sem a geração de provas reais nesta fase inicial, foi possível:
+
+- Validar a proposta de valor com uma interface intuitiva e didática;
+- Comunicar com clareza o diferencial técnico da arquitetura ZK;
+- Demonstrar o uso real por dois tipos de usuário: hospital (emissor da prova) e seguradora (validadora);
+- Simular resultados críveis com score de risco e estimativa de sinistro;
+- Reproduzir visualmente a experiência de envio, verificação e rastreabilidade da prova.
+
+Esse MVP acelerou o ciclo de aprendizado e feedback do produto com baixo esforço técnico, mantendo coerência com os objetivos de compliance, interoperabilidade e inovação aberta.
 
 ## 🏁 Começando
 
-### Pré-requisitos
+Esta seção orienta como instalar e executar o projeto localmente para explorar o MVP do Privia.
 
-- Node.js 18+
-- npm ou yarn
+### 📦 Pré-requisitos
 
-### Instalação
+Certifique-se de ter as seguintes dependências instaladas no seu ambiente:
+
+- **Node.js** v18 ou superior
+- **npm** ou **yarn**
+
+### 🚀 Instalação e execução
+
+Siga os passos abaixo para clonar o repositório, instalar as dependências e rodar o projeto:
 
 ```bash
-git clone https://github.com/seu-usuario/privia-zk.git
+git clone https://github.com/seu-usuario/privia-zk-guardian.git
 cd privia-zk
 npm install
 npm run dev
-```
 
-Acesse a aplicação em `http://localhost:5173`.
+```
 
 ## 🖥️ Estrutura do Projeto
 
@@ -81,7 +131,6 @@ O fluxo de integração foi desenhado para garantir privacidade e auditabilidade
 2. A prova é anexada ao modelo no marketplace da plataforma e disponibilizada para consulta por seguradoras;
 3. A seguradora acessa o modelo publicado, insere dados simulados de um cliente e inicia a simulação de precificação com base no modelo validado;
 4. O sistema simula a execução do modelo com os dados da seguradora e retorna um score de risco (ex: 82%) e uma estimativa de sinistro (ex: R$ 18.000,00);
-5. Toda simulação fica vinculada ao Aggregation ID da prova ZK, garantindo rastreabilidade pública e possibilidade de auditoria independente.
 
 ### 🧬 zkVerify como ponte entre ZK e Blockchain
 
@@ -96,46 +145,6 @@ Essa integração estabelece uma ponte robusta entre **inteligência artificial 
 
 ### 📌 Status atual
 
-## ⚡ Entrega de Valor com Menor Esforço
-
-A principal entrega de valor com menor esforço no projeto **Privia** foi a construção de um MVP funcional que simula, de forma realista, o fluxo completo de validação de modelos de IA médica com garantias de privacidade via provas de conhecimento zero (ZK Proofs).
-
-Mesmo sem a geração de provas reais nesta fase inicial, foi possível:
-
-- Validar a proposta de valor com uma interface intuitiva e didática;
-- Comunicar com clareza o diferencial técnico da arquitetura ZK;
-- Demonstrar o uso real por dois tipos de usuário: hospital (emissor da prova) e seguradora (validadora);
-- Simular resultados críveis com score de risco e estimativa de sinistro;
-- Reproduzir visualmente a experiência de envio, verificação e rastreabilidade da prova.
-
-Esse MVP acelerou o ciclo de aprendizado e feedback do produto com baixo esforço técnico, mantendo coerência com os objetivos de compliance, interoperabilidade e inovação aberta.
-
-## ⚙️ Funcionalidades
-
-A Privia entrega um fluxo completo, seguro e auditável de validação e uso de modelos de IA médica, com foco na privacidade dos dados e integridade das análises. A experiência do usuário é dividida em duas jornadas principais: **Hospitais** e **Seguradoras**.
-
-### 🔬 Área do Hospital – Publicação de Modelos
-
-- Treinamento local de modelos com dados clínicos sensíveis;
-- Geração de prova de conhecimento zero (ZK Proof) utilizando Noir e nargo;
-- Publicação do modelo no marketplace com metadados como condição médica, instituição e versão;
-- Upload da prova vinculada ao modelo, identificada por um Aggregation ID;
-- Acompanhamento do histórico completo de modelos publicados, incluindo status de validação e controle de versões.
-
-### 💰 Área da Seguradora – Simulação de Risco
-
-- Acesso ao marketplace com modelos públicos validados e auditáveis;
-- Seleção de modelos por categoria clínica (ex: recidiva de câncer de mama);
-- Inserção de dados simulados de pacientes (como idade, histórico, exames, etc.);
-- Carregamento visual que simula a execução do modelo de forma segura;
-- Retorno da análise com:
-  - **Score de risco** (ex: 83%);
-  - **Estimativa de custo ou sinistro** (ex: R$ 18.000,00);
-- Acesso ao link público de verificação da prova ZK via zkVerify;
-- Histórico de simulações com rastreabilidade total para decisões e auditorias.
-
-Essas funcionalidades demonstram, mesmo em sua fase de MVP, a viabilidade técnica e operacional de um sistema que conecta IA médica com segurança, privacidade e transparência — pronto para validações públicas via zkVerify.
-
 ## 🎨 Design e Tecnologias
 
 - **React + TypeScript**
@@ -144,6 +153,21 @@ Essas funcionalidades demonstram, mesmo em sua fase de MVP, a viabilidade técni
 - **sonner** para notificações
 - **React Router** para navegação SPA
 - Estilo responsivo e moderno com animações
+
+## 👥 Time
+
+Nosso time combina experiência técnica em blockchain, IA e liderança de engenharia:
+
+- **José Victor Dantas** – [@zevictordantas](https://github.com/zevictordantas)  
+  Especialista em blockchain, atua com inovação na Corp Insider e é CTO da BlockC.
+
+- **Beatriz Siqueira**  
+  Ex-Tech Leader e Tech Manager na Mentora, com sólida experiência em liderança de equipes e arquitetura de software.
+
+- **Márcio Lucas** – [@marciold](https://github.com/marciold)  
+  Engenheiro e analista de machine learning, com foco em aplicações de IA em saúde e modelagem preditiva.
+
+> 💡 Juntos, unimos privacidade, inteligência artificial e validação pública para transformar a saúde com segurança e escalabilidade.
 
 ## 🚧 Próximos Passos
 
@@ -164,3 +188,22 @@ Essas funcionalidades demonstram, mesmo em sua fase de MVP, a viabilidade técni
 - Securitizar ativos financeiros de saúde validados por provas ZK;
 - Lançar produtos financeiros inovadores com base em risco clínico validado;
 - Atrair investidores com transparência técnica e impacto social auditável.
+
+## ✨ Junte-se à revolução da IA médica com privacidade
+
+A **Privia** não é apenas uma plataforma — é a fundação de uma nova era na saúde digital. Um futuro onde inteligência artificial, privacidade de dados e decisões clínicas seguras caminham lado a lado.
+
+Estamos construindo um ecossistema onde:
+
+- 🏥 **Hospitais** compartilham modelos de IA com provas criptográficas, sem revelar dados sensíveis;
+- 🛡️ **Seguradoras** simulam riscos reais com transparência e confiança verificável;
+- 👨‍⚕️ **Pacientes** recebem diagnósticos mais precisos e planos de saúde mais justos, baseados em evidências auditáveis.
+
+🔐 **Com a Privia, a privacidade não é uma barreira — é o motor da inovação.**  
+🧩 **Com zkVerify, a confiança não depende mais da promessa — ela é provada.**
+
+---
+
+🔗 Conecte-se. Teste. Contribua. Vamos validar juntos o futuro da saúde digital.
+
+[🌐 www.privia.health](#)
